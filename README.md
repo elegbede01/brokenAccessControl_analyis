@@ -52,23 +52,25 @@ Pour plus d'informations et de conseils d'utilisation, consultez la documentatio
 
 # Outil 2: Progpilot #
 
-    Progpilot (https://github.com/designsecurity/progpilot) est un outil d'analyse statique open-source pour détecter les vulnérabilités de sécurité dans le code PHP.\citeurl{progpilot}.Progpilot peut détecter un large éventail de vulnérabilités de sécurité. Il est conçu pour être facile à utiliser et s'intègre parfaitement avec des environnements de développement PHP populaires tels que Visual Studio Code et Atom. Il peut également être utilisé en tant qu'outil en ligne de commande autonome.\\
+Progpilot (https://github.com/designsecurity/progpilot) est un outil d'analyse statique open-source pour détecter les vulnérabilités de sécurité dans le code PHP.{progpilot}.Progpilot peut détecter un large éventail de vulnérabilités de sécurité. Il est conçu pour être facile à utiliser et s'intègre parfaitement avec des environnements de développement PHP populaires tels que Visual Studio Code et Atom. Il peut également être utilisé en tant qu'outil en ligne de commande autonome.
 
 # Installation de progpilot
-Consulter la documentation: 
+Consulter la documentation: https://github.com/designsecurity/progpilot
 # Comment utiliser progpilot
-La commande progpilot prend en argument le chemin des fichiers et dossiers à analyser et éventuellement un fichier de configuration :
-\lstconsolestyle
+La commande progpilot prend en argument le chemin des fichiers et dossiers à analyser et éventuellement un fichier de configuration 
 
-# Sans onfiguration du fichier file
-\begin{lstlisting}[language=bash]
+# Sans onfiguration du fichier 
 
-$ progpilot example1.php example2.php folder1/ folder2/
-\end{lstlisting}
-# Avec configuration du fichier file
-\begin{lstlisting}[language=bash]
-$ progpilot example1.php example2.php folder1/ folder2/
-\end{lstlisting}
+``` 
+$ progpilot example1.php example2.php folder1/ folder2/      
+                                        
+```
+# Avec configuration du fichier 
+
+```
+ $ progpilot example1.php example2.php folder1/ folder2/       
+                                        
+```
 
 Pour plus d'informations, consulter le fichier readme via https://github.com/designsecurity/progpilot#readme.
     
@@ -83,9 +85,10 @@ Pour réaliser l'analyse statique automatisée, il est nécessaire d'accéder au
 
 # Comment utiliser Brakeman? #
 
-$ brakeman /path/to/rails/application
-
-
+```
+ $ brakeman /path/to/rails/application          
+                                        
+```
 ## Choix des outils ###
 
 # Critères de choix # 
@@ -132,12 +135,7 @@ ZAP offre des fonctionnalités supplémentaires gratuites grâce à une variét�
 Le processus de pentesting}, les étapes pentesting avec OWASP ZAP et la présentation complète est disponible via la documentation.
 
 Les étapes de test y compris la configuration du proxy sur Firefox est disponible  via https://fre.myservername.com/owasp-zap-tutorial-comprehensive-review-owasp-zap-tool.
-%/////////////////////////////////
-%////////////////////////////////
-%\subsubsection{Dotdotpwn}
-%DotDotPwn est un outil de test de pénétration open-source qui vise à détecter les vulnérabilités d'inclusion de fichiers dans les applications web. Il permet d'automatiser les attaques en utilisant des séquences de caractères spécialement conçues pour exploiter ces vulnérabilités.
-%Compatible avec la plupart des systèmes d'exploitation, il prend en charge plusieurs protocoles tels que HTTP, FTP, SMB, SSH, Telnet, SMTP, POP3, etc. pour tester la sécurité des applications.
-%DotDotPwn peut être utilisé pour trouver des vulnérabilités d'inclusion de fichiers en testant les entrées utilisateur dans les paramètres de l'URL, les en-têtes HTTP et d'autres entrées utilisateur. Il est également capable de vérifier l'existence de fichiers sensibles sur le serveur, tels que les fichiers de configuration et les fichiers de journal.%
+
 ### Choix des outils ###
 
 Nous avons porté notre choix sur OWASP ZAP ou Zaproxy pour l'analyse dynamique.
@@ -176,64 +174,10 @@ Pour les tests, nous utilisons une une machine virtuelle virtualbox:
 
 #/////////////////////////////////////////////////////////////////
 
+## CONTACT ##
 
-It's written in perl programming language and can be run 
-either under OS X, *NIX or Windows platforms. It's the first Mexican 
-tool included in BackTrack Linux (BT4 R2).
-
-Fuzzing modules supported in this version: 
-- HTTP
-- HTTP URL
-- FTP
-- TFTP
-- Payload (Protocol independent)
-- STDOUT
-
-
-### REQUIREMENTS ###
-
-- Perl (http://www.perl.org)
-Programmed and tested on Perl 5.8.8 and 5.10
-
-- Nmap (http://www.nmap.org)
-Only if you plan to use the OS detection feature
-(needs root privileges)
-
-Perl modules:
-- Net::FTP
-- TFTP (only required if fuzzing TFTP)
-- Time::HiRes
-- Socket
-- IO::Socket
-- Getopt::Std
-
-You can easily install the missing modules doing the 
-following as root:
-
-```
-# perl -MCPAN -e "install <MODULE_NAME>"
-```
-
-or
-
-```
-# cpan 
-cpan> install <MODULE_NAME>
-```
-
-
-### EXAMPLES ###
-
-Read EXAMPLES.txt
-
-
-### CONTACT ###
-
-Official Website: http://dotdotpwn.sectester.net
-Official Email:   dotdotpwn@sectester.net
-Bugs / Contributions / Improvements: dotdotpwn@sectester.net
-
-
+Lien: https://github.com/elegbede01/brokenAccessControl_analyis
+Email: elegbede.joseph@owasp.org
 ### AUTHEURS ###
 
 ```
