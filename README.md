@@ -1,11 +1,6 @@
 # BROKEN ACCESS CONTROL 
 
-
-
-
-
 ###  ANALYSE DES VULNERABILITES "Broken Access Control"  ###
-
 
 
 # Objectifs
@@ -37,7 +32,8 @@ Cette méthode analyse directement le code source du programme sans l’exécute
 
 ### Outil 1: Bearer ###
 
-   Bearer (\url{https://github.com/Bearer/bearer}) est un outil opensource de test statique de sécurité des applications (SAST) qui scanne le code source et analyse les flux de données pour découvrir, filtrer et hiérarchiser les risques de sécurité et les vulnérabilités conduisant à des expositions de données sensibles (PII, PHI).Bearer est entièrement personnalisable, de la création de vos propres règles à la détection des composants (base de données, API) et à la classification des données \citeurl{bearer}.
+   Bearer (\url{https://github.com/Bearer/bearer}) est un outil opensource de test statique de sécurité des applications (SAST) qui scanne le code source et analyse les flux de données pour découvrir, filtrer et hiérarchiser les risques de sécurité et les vulnérabilités conduisant à des expositions de données sensibles (PII, PHI).
+   earer est entièrement personnalisable, de la création de vos propres règles à la détection des composants (base de données, API) et à la classification des données.
 # Installation de Bearer #
 
 Consulter ici https://github.com/Bearer/bearer
@@ -87,13 +83,13 @@ Pour réaliser l'analyse statique automatisée, il est nécessaire d'accéder au
 
 # Comment utiliser Brakeman? #
 
-\begin{lstlisting}
 $ brakeman /path/to/rails/application
-\end{lstlisting}
+
 
 ## Choix des outils ###
 
 # Critères de choix # 
+
  Nous privilégions les outils opensource pour non seulement profiter de leur gratuité mais aussi de leur pleine puissance sans oublier les critères de choix de bon outil abordés par OWASP https://owasp.org/www-community/Source_Code_Analysis_Tools à savoir prend en charge votre langage de programmation, 
  capacité à détecter les vulnérabilités, basée sur le Top 10 de l'OWASP, la précision (taux de faux positifs/faux négatifs), note de 
  référence OWASP,capacité à comprendre les bibliothèques/frameworks dont vous avez besoin, disponibilité en tant que plug-in dans les 
@@ -103,42 +99,6 @@ Nous avons étudié plusieurs outils sur la base de plusieurs autres critères c
 nombre de stars, nombre de vues, la date de dernière version, la date du dernier commit et le nombre de forks et le temps d'analyse. 
 Les résultats de cette étude sont classés dans le tableau suivant:
 
-\begin{table}[H]
-    \centering
-    \caption{Liste des outils pour méthode 1}
-    \label{tab:service_level}
-    \begin{tabular}{|p{3cm}|p{2.1cm}|p{1.2cm}|p{1.2cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|}
-        \hline
- \textbf{Outils d'analyse statique automatisée} & \textbf{Contributeurs} & \textbf{Nombre de stars} & \textbf{nombre de vues} & \textbf{Dernière version} & \textbf{Dernier commit} & \textbf{nombre de forks} \\ [0.5ex] 
- \hline\hline
- betterscan-ce & 7 & 412 & 9 &1semaine  &1semaine &66 \\ 
- \hline\hline
-  wapiti & 27 & 580 & 21 &1semaine  &2semaine &112\\
-   \hline\hline
-  pomerium & 84 & 3500 & 35 &3semaines  &3 jours &112\\
-  \hline\hline
-  Rips & - & 285 & 21 & -  &2 ans &82\\
-  \hline\hline
-  Kube-bench & 5 & 5700 & 107 &3semaines  &3semaines &1100\\
-  \hline\hline
-  Brakeman & 128 & 6600 & 168 &3semaines  &3semaines &727\\
-  \hline\hline
- bearer & 12 & 805 & 14 &2 jours  &2 jours &26\\
-  \hline\hline
-  progpilot & 6 & 281 & 15 &3semaines  &3semaines &59\\
-  \hline\hline
-  Graudit & 13 & 1200 & 34 &3 mois  &3 mois &322\\
-  \hline\hline
-  nodejsscan & 12 & 2100 & 58 &3 mois  &17/06/2022 &328\\
-  \hline\hline
-  ShiftLeft Scan ou sast-scan & 15 & 621 & 31 &3semaines  &3semaines &111\\
-  \hline\hline
- codeql & 246 & 5800 & 214 & 4h  & 4h &1300\\
- %\hline\hline
- %Total of Test & \multicolumn{6}{|c|}{13645} \\ [1ex] 
- \hline\hline
-    \end{tabular} 
-\end{table}
 
 ### Analyse comparatives des outils ### 
 
@@ -179,200 +139,43 @@ Les étapes de test y compris la configuration du proxy sur Firefox est disponib
 %Compatible avec la plupart des systèmes d'exploitation, il prend en charge plusieurs protocoles tels que HTTP, FTP, SMB, SSH, Telnet, SMTP, POP3, etc. pour tester la sécurité des applications.
 %DotDotPwn peut être utilisé pour trouver des vulnérabilités d'inclusion de fichiers en testant les entrées utilisateur dans les paramètres de l'URL, les en-têtes HTTP et d'autres entrées utilisateur. Il est également capable de vérifier l'existence de fichiers sensibles sur le serveur, tels que les fichiers de configuration et les fichiers de journal.%
 ### Choix des outils ###
+
 Nous avons porté notre choix sur OWASP ZAP ou Zaproxy pour l'analyse dynamique.
 Nous aborderons les critères qui justifient ce choix dans la sous-section suivante.
 
 # Critères de choix # 
 Nous avons privilégié également les solutions les plus à jours et ayant plus de stars.
-Tout comme dans le cas de l'analyse statique automatisée, nous privilégions les outils opensource en tenant aussi compte les critères recommandées par OWASP \citeurl{owaspdast}.
+Tout comme dans le cas de l'analyse statique automatisée, nous privilégions les outils opensource en tenant aussi compte les critères recommandées par OWASP https://owasp.org/www-project-devsecops-guideline/latest/02b-Dynamic-Application-Security-Testing.
 Nous avons étudié plusieurs outils sur la base de plusieurs autres critères complémentaires à savoir: nombre de contributeurs, nombre de stars, nombre de vues, la date de dernière version, la date du dernier commit et le nombre de forks et le temps d'analyse. Les résultats de cette étude sont classés dans le tableau suivants:
-\begin{table}[H]
-    \centering
-    \caption{Liste des outils d'analyse dynamique automatisée}
-    \label{tab:service_level}
-    \begin{tabular}{|p{3cm}|p{2.1cm}|p{1.2cm}|p{1.2cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|}
-        \hline
- \textbf{Outils d'analyse dynamique automatisée} & \textbf{Contributeurs} & \textbf{Nombre de stars} & \textbf{nombre de vues} & \textbf{Dernière version} & \textbf{Dernier commit} & \textbf{nombre de forks} \\ [0.5ex] 
- \hline\hline
- DynaPyt & 5 & 22 & 3 & 30/01/2023  & 1 mois &5 \\ 
- \hline\hline
- souper & 29+ & 1900 & 67 &4semaines  &4semaines &162\\
-   \hline\hline
-  suture & 24 & 1400 & 21 &1semaines  &2semaines &112\\
-  \hline\hline
-  Enlightn & 2 & 366 & 35 &3 semaines  &3 jours &275\\
-  \hline\hline
-CrossHair & 17 & 853 & 13 &02/02/2023  &1 mois & 40\\
-  \hline\hline
-  zaproxy ou OWASP ZAP & 198  & 10600 & 389 &02/03/2023 &2 jours &2000\\
- %\hline\hline
- %Total of Test & \multicolumn{6}{|c|}{13645} \\ [1ex] 
- \hline\hline
-    \end{tabular} 
-\end{table}
+
 %\subsubsection{Analyse comparatives des outils}
 
-\section{Choix des applications}
-\subsection{Critères de choix}
-Les plate-formes ou les applications sur lesquelles nous travaillons sont \textbf{des applications monétaires en ligne, des plate-formes de développement logiciel ou des frameworks et des plate-formes de traduction multilingues qui sont des plate-formes plus ou moins populaires et les plus sensibles aux vulnérabilités}. 
-Sur la base donc de la sensiblilité des ces plateformes aux vulnérabolités, sept (07) ont été retenues pour les plateformes opensource et cinq pour les plateformes non opensource.\\
-\subsection{Les applications pour méthode 1}
-Nous avons tourné nos analyses statiques vers des entreprises ayant soumis des programmes de bug bounty sur la plateforme numéro de bug bounty: HackerOne soit des tests effectués sur sept (07) plateformes opensource.\\
-
-\subsubsection{Application 1:\textbf{Weblate} }
-   Plateforme Web de traduction en continu.Logiciel libre de traduction utilisé par plus de 2 500 projets Open Source (disponible via \url{https://github.com/WeblateOrg/weblate/}) et entreprises, et ce dans 165 pays.
-    \textbf{Caractéristiques de Weblate}\\
-    En tant qu’outil de traduction assistée par ordinateur riche en fonctionnalités, Weblate fait gagner du temps aux développeurs et aux traducteurs et apportent de la joie aux utilisateurs à travers le monde! Consultez la documentation documentation pour en savoir plus \url{https://docs.weblate.org/en/latest/} \citeurl{weblate}.
-    
-    Le programme de bug bounty de cette plateforme avec la politique de ce programme sont disponibles sur hackerone via: \url{https://hackerone.com/weblate?type=team}.
-\newline
-\subsubsection{Application 2:\textbf{Django} }
-        
-    Django est un framework Web Python de haut niveau qui encourage un développement rapide et une conception propre et pragmatique. Construit par des développeurs expérimentés, il prend en charge une grande partie des tracas du développement Web, vous pouvez donc vous concentrer sur l'écriture de votre application sans avoir à réinventer la roue. C'est gratuit et open source et disponible via \url{https://github.com/django/django}\citeurl{django}.\\
-Le programme de bug bounty de cette plateforme avec la politique de ce programme sont disponibles sur hackerone via: \url{https://hackerone.com/django?type=team}\\
-\newline
-\subsubsection{Application 3:\textbf{Gitlab} }
-GitLab est un gestionnaire de dépôts Git basé sur le web qui fournit une gestion de code source, une intégration et une livraison continues (CI/CD), une revue de code et d'autres fonctionnalités de collaboration. Il permet aux développeurs d'héberger leurs dépôts Git sur les serveurs de GitLab ou de l'installer sur leurs propres serveurs \citeurl{gitlab}.\\
-Son code est disponible via \url{https://gitlab.com/gitlab-org/gitlab} ou via     \url{https://github.com/gitlabhq}\\ 
-Pour voir à quoi ressemble GitLab, veuillez consulter la page des fonctionnalités sur le site Web \url{https://about.gitlab.com/features/?stage=plan}.
-Le programme de bug bounty de cette plateforme avec la politique de ce programme sont disponibles sur hackerone via:  \url{https://hackerone.com/gitlab?type=team}.\\
-\newline
-\subsubsection{Application 4:\textbf{Wordpress} }
-
-WordPress est un Système de gestion de contenu (SGC) gratuit et open source. Il permet de créer des sites Internet complets et variés, reposant sur une base de données MySQL. WordPress est le leader incontesté des SGC, il propulse un très grand nombre de blogs et de sites de e-commerce \citeurl{wordpres}.Son code source est disponible sur \url{https://github.com/WordPress/WordPress/tree/master/wp-admin}.\\
--Facilité d'utilisation : WordPress est facile à utiliser et ne nécessite pas de compétences techniques avancées. Il est simple à installer et à configurer, même pour les débutants.
-Le programme de bug bounty de cette plateforme avec la politique de ce programme sont disponibles sur hackerone via \url{https://hackerone.com/wordpress?type=team}. \\
-
-\subsubsection{Application 5 : \textbf{Rocket.chat}}
-
-    Rocket.Chat est un service de messagerie électronique et de chat d'équipe présenté comme une alternative à Slack. Ce système de chat est gratuit, open-source et auto-hébergé pour les équipes disponible via \url{}\citeurl{rocket.chat01}.\\
-    Site:\url{https://fr.rocket.chat/}\\
-   Code source:  \url{https://github.com/RocketChat/Rocket.Chat}.
-   
-\subsubsection{Application 6: Laravel} 
-LARAVEL est un Framework du langage de programmation PHP. Créé par Taylor Otwel, ce framework regroupe les meilleures librairies utiles pour créer un site web. En outre, l’excellent framework laravel intègre aussi bien d’autres fonctionnalités exclusives. C’est notamment le cas de son moteur de template Blade \citeurl{laravel}.\\
- Laravel est gratuit et orienté objet. Il a été pensé pour rendre le développement d'applications web rapide et facile. Tout comme son grand frère Symfony dont il utilise certaines briques, il applique le pattern MVC (pour "Model View Controller") et offre nativement un ensemble de composants et fonctionnalités qui permettent de développer une application PHP moderne et robuste \citeurl{laravel01}.\\
-
-Le code source de laravel est disponible via: \url{https://github.com/laravel/laravel/tree/10.x/public} \\
-Le programme de bug bounty de cette plateforme avec la politique de ce programme sont disponibles sur hackerone via  \url{https://hackerone.com/laravel?type=team}.
-
-\subsubsection{Application 7:\textbf{Rabobank} }
-             
-    La Rabobank est une institution financière internationale de banque assurance d’origine néerlandaise, constituée en 1972 par la fusion des banques Coöperatieve Centrale Raiffeisen-Bank et Coöperatieve Centrale Boerenleenbank. De par sa structure, c'est une coopérative1. En 2012, c'est le « plus grand crédit agricole du monde ».\\
-Pour les grands ou les petits défis, dans tous les domaines, les gens unissent leurs forces à la recherche de solutions. Rabobank le fait depuis près de 125 ans. Et continuera à le faire. Pour faire grandir ensemble un monde meilleur \citeurl{rabobank}. 
-
-Programme de bug bounty: \url{https://github.com/rabobank-cdc/DeTTECT.git}
-
-\subsection{Les applications pour méthode 2}
-Cinq (05) applications ou plateformes web ayant leurs progrmmes de bug bounty sur Hackerone ont été choisies sur les même bases de critères que pour la première méthode sauf que cette fois ces applications ou plateformes ne sont pas open source.\\
-\subsubsection{Application 1:\textbf{Moonpay}}
-Avec moonpay, achetez et vendez des cryptos avec MoonPay. 
-Moonpay est une plateforme populaire dans le domaine des paiements en ligne spécifique de vente et d’achat des crypto-monnaies.Consultez la plateforme via: \url{https://www.moonpay.com/fr}.Consultez le programme de bug bounty correspondant avec la politique du même programme.\\
-\subsubsection{Application 2: \textbf{Larksuite}}
-Lark est une plateforme de collaboration et de communication basée sur le cloud, développée par Lark Technologies Pte. Ltd., une entreprise technologique basée à Singapour. Lark comprend des fonctionnalités telles que la messagerie, la visioconférence, la collaboration sur des documents, la gestion de calendrier, et plus encore.
-Les principales fonctionnalités de Lark comprennent sa capacité à s'intégrer à d'autres outils de productivité et de collaboration, tels que Google Drive, Google Calendar et Trello, ainsi que ses capacités intégrées de traduction et de transcription. Lark offre également une gamme de fonctionnalités de sécurité et de confidentialité, telles que le chiffrement de bout en bout, la protection des données et le contrôle d'accès.
-Lark gagne en popularité ces dernières années, notamment en Asie, en tant qu'alternative à d'autres plateformes de collaboration et de communication telles que Slack, Microsoft Teams et Zoom.
-Consultez la plateforme via \url{https://www.larksuite.com/}.\\
-       Le programme de bug bounty correspondant est disponible via:
-\url{https://hackerone.com/lark_technologies?type=team }.\\
-
-\subsubsection{Application 3: \textbf{Yahoo}}
-        
-Yahoo (\url{https://fr.yahoo.com/?p=us}) est une entreprise américaine de médias numériques fondée en 1994 par Jerry Yang et David Filo. À l'origine, Yahoo était un ann uaire web qui recensait les sites internet les plus populaires et offrait un moteur de recherche. Depuis, Yahoo a élargi son offre de services en ligne, notamment en proposant des services de messagerie, de finance, d'actualités, de sport, de divertissement et de publicité en ligne.Yahoo a été l'un des principaux moteurs de recherche dans les années 1990 et au début des années 2000, mais a progressivement perdu de son influence face à la concurrence de Google. En 2016, Yahoo a été acquis par Verizon Communications pour 4,5 milliards de dollars. La société a ensuite été renommée en Oath Inc., avant de changer de nom pour Verizon Media en 2019.
-Aujourd'hui, Yahoo est principalement connu pour sa plateforme de messagerie Yahoo Mail et son portail web Yahoo.com, qui offre des services de courrier électronique, d'actualités, de recherche, de finance et de divertissement.
-    
-Le  programme de bug bounty de cette plateforme est disponible sur hackerone via  \url{https://hackerone.com/yahoo?type=team }
-
-\subsubsection{Application 4: \textbf{MTN}}
-
-MTN (\url{https://www.mtn.com/}) est une entreprise de télécommunications africaine, fondée en 1994 en Afrique du Sud. MTN fournit des services de téléphonie mobile, d'Internet et de réseau aux consommateurs et aux entreprises dans 21 pays africains, ainsi que dans le Moyen-Orient.
-MTN est actuellement le plus grand opérateur de téléphonie mobile en Afrique et compte plus de 257 millions de clients dans le monde. MTN propose une gamme de produits et services de télécommunications, tels que des offres de forfaits mobiles prépayés et postpayés, des services de paiement mobile, des services bancaires mobiles, des services de divertissement, des offres d'accès à Internet, et plus encore.\\
-MTN a été impliqué dans diverses initiatives de développement communautaire, notamment dans les domaines de la santé, de l'éducation, de l'environnement et du développement économique en Afrique. C'est la plateforme web du  groupe mtn disponible via 
-\url{https://hackerone.com/mtn_group?type=team}.\\
-
-\subsubsection{Application 5: \textbf{Paypal}}
-
-PayPal (\url{https://www.paypal.com/fr/home}) est une entreprise américaine de paiement en ligne fondée en 1998. Elle permet aux particuliers et aux entreprises de transférer de l'argent en ligne de manière sécurisée, rapide et facile. PayPal propose une variété de services de paiement en ligne, y compris des paiements par carte de crédit, des paiements par débit bancaire, des paiements par portefeuille électronique et des paiements mobiles.
-PayPal est disponible dans plus de 200 pays et est accepté par des millions de marchands en ligne, ainsi que par de nombreux sites d'enchères en ligne.
-Ses fonctionnalité sont notamment recevoir, envoyer de l'argent. 
-La plateforme web de paypal est disponible via ce lien: \url{https://hackerone.com/paypal?type=team}.
+Les tests doivent être effectués sur les applications  disponible via hackerone https://hackerone.com.
  
 
-\section{Automatisation de la démarche}
-\subsection{Description}
-Notre démarche se résume par dépôt github disponible via \url{https://github.com/elegbede01/}
-
-\section{Matériels}
-\textbf{Ordinateur et système}
+### Matériels ###
+# Ordinateur et système
 Pour ce travail, nous nous somme servis d’un ordinateur dont les caractéristiques sont les suivantes :
 
-\begin{itemize}
-    \item \textbf{Marque :} MSI
-    \item \textbf{Modèle :} GP70 2PE
-    \item \textbf{Système d’exploitation:} Kali linux
-    \item \textbf{Version du kernel :} 6.1.0-kali5-amd64
-    \item \textbf{Architecture :} 64 bits
-    \item \textbf{Processeur :} Core i7
-    \item \textbf{Mémoire RAM :} 16 Go
-\end{itemize}                  
+    . Marque :MSI
+    . Modèle :}GP70 2PE
+    . Système d’exploitation: Kali linux
+    . Version du kernel : 6.1.0-kali5-amd64
+    . Architecture : 64 bits
+    . Processeur : Core i7
+    . Mémoire RAM : 16 Go
+
 Pour les tests, nous utilisons une une machine virtuelle virtualbox:
-\begin{itemize}
-    \item \textbf{OS :} kali 
-    \item \textbf{Version :} 20.10
-    \item \textbf{Version du kernel :} 5.8.0-63-generic
-    \item \textbf{Architecture :} 64 bits
-    \item \textbf{Processeur :} QEMU Virtual CPU version 2.5+
-    \item \textbf{Mémoire RAM :} 2 Go
-\end{itemize}
-
-%\item \textbf{Burpsuite community}\\
-
-%    \textbf{Automatisation}\\
-
-%BurpSuite Community (dernière version 2023.3.3) est une plate-forme intégrée pour effectuer des tests de sécurité des applications Web. Ses différents outils fonctionnent ensemble de manière transparente pour prendre en charge l'ensemble du processus de test, depuis la cartographie initiale et l'analyse de la surface d'attaque d'une application, jusqu'à la recherche et l'exploitation des vulnérabilités de sécurité.\\
-%Burp vous donne un contrôle total, vous permettant de combiner des techniques manuelles avancées avec une automatisation de pointe, pour rendre votre travail plus rapide, plus efficace et plus amusant.
-%Burp Suite Community Edition contient les composants clés, chacun réalisant une tâche particulière  à savoir:\citeurl{burp}\\
-%\begin{itemize}
-%    \item \textbf{Un proxy intercepteur}, un module qui intercepte les requêtes et les réponses et permet à l’utilisateur de manipuler le trafic.
-%    \item \textbf{Un Spider « Scanner » } un module qui parcourt les pages de l’application Web à tester et identifie ses vulnérabilités de manière automatique
-%    \item \textbf{Un répéteur « Repeater »}, pour manipuler et renvoyer des demandes individuelles.
- %   \item \textbf{Un « Intruder »}, un module qui permet de créer et d’automatiser des attaques contre
-%l’application cible et de détecter ses vulnérabilités. Ce composant est paramétrable et
-%l’utilisateur peut personnaliser les attaques comme il le souhaite.C'est un module qui envoie des %requêtes et analyse les réponses associées.
-%    \item \textbf{Un outil Sequencer}, pour tester le caractère aléatoire des jetons de session.
-%    \item \textbf{Extensibilité}, vous permettant d'écrire facilement vos propres plugins, pour effectuer des tâches complexes et hautement personnalisées dans Burp.\\
-%\end{itemize}
-%Burp est facile à utiliser et intuitif, permettant aux nouveaux utilisateurs de commencer à travailler immédiatement. Burp est également hautement configurable et contient de nombreuses fonctionnalités puissantes pour aider les testeurs les plus expérimentés dans leur travail.
-
-%Burp Suite Community Edition nécessite l'environnement d'exécution officiel Java SE 13 ou version ultérieure.
-
-%Il est disponible sur toutes les plateformes en trois versions : une version professionnelle, une version entreprise et une version communauté et sont téléchargeables via \url{https://portswigger.net/burp/releases/professional-community-2023-3-3?requestededition=community&requestedplatform=}. Les deux premières versions sont payantes tandis que la dernière est gratuite.\\
-%\begin{figure}[H]
-%    \centering
-%    \includegraphics[width=\textwidth]{images/burpdash.png}
-%    \caption{Aperçu du dashboard de Burpsuite community }
-%    \label{fig:internetbj}
-%\end{figure}
-\addcontentsline{toc}{section}{Conclusion}
-\section*{Conclusion}
-Dans ce chapitre, nous avons présenté la méthodologie utilisée à travers l'analyse statique automatisée et l'analyse dynamique semi-automatisée.Les matériels utilisés dans ce travail font également l'objet de  ce chapitre. Nous avons aussi présenté les logiciels et outils d'analyse liés à chaque méthode. Nous avons aussi parlé du cadre de stage qu'est MA-INFO. Tout ceci n'a pas été sans difficultés notamment en ce qui concerne les logiciels d'analyse ou nous avons été obligés d'étudier plusieurs outils afin de choisir ceux qui ont plus d'efficacité, plus de performance et surtout les plus à jour.
-
-
-
+    . OS : kali 
+    . Version : 20.10
+    . Version du kernel : 5.8.0-63-generic
+    . Architecture : 64 bits
+    . Processeur : QEMU Virtual CPU version 2.5+
+    . Mémoire RAM : 2 Go
 
 
 #/////////////////////////////////////////////////////////////////
-### DESCRIPTION ###
 
-Démarche  - The Directory Traversal Fuzzer
-
-It's a very flexible intelligent fuzzer to discover traversal 
-directory vulnerabilities in software such as HTTP/FTP/TFTP 
-servers, Web platforms such as CMSs, ERPs, Blogs, etc. 
-
-Also, it has a protocol-independent module to send the desired 
-payload to the host and port specified. On the other hand, it 
-also could be used in a scripting way using the STDOUT module.
 
 It's written in perl programming language and can be run 
 either under OS X, *NIX or Windows platforms. It's the first Mexican 
@@ -431,15 +234,11 @@ Official Email:   dotdotpwn@sectester.net
 Bugs / Contributions / Improvements: dotdotpwn@sectester.net
 
 
-### AUTHORS ###
+### AUTHEURS ###
 
 ```
- Christian Navarrete aka chr1x         Alejandro Hernandez H. aka nitr0us
-   http://twitter.com/chr1x              http://twitter.com/nitr0usmx
-      chr1x@sectester.net                  nitrousenador@gmail.com
-                                         http://www.brainoverflow.org
-
- CubilFelino Security Research Lab     Chatsubo [(in)Security Dark] Labs
-   http://chr1x.sectester.net          http://chatsubo-labs.blogspot.com   
+ ELEGBEDE Joseph                          
+ Email: elegbede.joseph@owasp.org            
+                                         
 ```
 
