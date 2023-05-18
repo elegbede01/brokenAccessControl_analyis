@@ -1,4 +1,4 @@
-# brokenAccessControl_analyis
+# BROKEN ACCESS CONTROL 
 
 
 
@@ -31,8 +31,9 @@ Pour cela, nous utilisons deux méthodes: méthode d'analyse statique automatis�
 
 ### 1-Méthode d'analyse 1: Analyse statique automatisée ###
 
-Les tests de sécurité des applications statiques (SAST) sont utilisés pour sécuriser les logiciels en examinant le code source du logiciel pour identifier les sources de vulnérabilités. Le processus d'analyse statique du code source existe depuis que les ordinateurs existent, la technique s'est étendue à la sécurité à la fin des années 90 \citeurl{sastWiki}.
-Cette méthode analyse directement le code source du programme sans l’exécuter afin de déterminer la qualité de l'application web. L’analyse peut être effectuée à plusieurs niveaux du programme qui comprennent, entre autre, le niveau "unité" qui se concentre sur une portion de code sans prendre en compte le contexte général du programme et le niveau "système" où la globalité de l'application est analysée avec les différentes relations existantes entre les unités. Ce type d’analyse est susceptible de trouver un grand nombre de vulnérabilités, mais a souvent pour défaut de retourner beaucoup de fausses alertes \citeurl{lemagit} \citeurl{owaspsast} et de durer dans le temps. L’analyse statique de code peut être effectuée manuellement, communément appelée la revue de code ou inspection de code, ou bien en utilisant des outils automatisés (Static Application Security Testing (SAST), on parle d'analyse statique automatisée \cite{theseRaounak}. Les outils d’analyse statique automatisée utilisés dans le cadre de notre travail seront abordées à la suite.
+Les tests de sécurité des applications statiques (SAST) sont utilisés pour sécuriser les logiciels en examinant le code source du logiciel pour identifier les sources de vulnérabilités. Le processus d'analyse statique du code source existe depuis que les ordinateurs existent, la technique s'est étendue à la sécurité à la fin des années 90 https://en.wikipedia.org/wiki/Static_application_security_testing.
+
+Cette méthode analyse directement le code source du programme sans l’exécuter afin de déterminer la qualité de l'application web. L’analyse peut être effectuée à plusieurs niveaux du programme qui comprennent, entre autre, le niveau "unité" qui se concentre sur une portion de code sans prendre en compte le contexte général du programme et le niveau "système" où la globalité de l'application est analysée avec les différentes relations existantes entre les unités. Ce type d’analyse est susceptible de trouver un grand nombre de vulnérabilités, mais a souvent pour défaut de retourner beaucoup de fausses alertes https://owasp.org/www-community/Source_Code_Analysis_Tools et de durer dans le temps. L’analyse statique de code peut être effectuée manuellement, communément appelée la revue de code ou inspection de code, ou bien en utilisant des outils automatisés (Static Application Security Testing (SAST), on parle d'analyse statique automatisée \cite{theseRaounak}. Les outils d’analyse statique automatisée utilisés dans le cadre de notre travail seront abordées à la suite.
 
 ### Outil 1: Bearer ###
 
@@ -53,7 +54,8 @@ L'exécution de Bearer ne devrait pas prendre plus de temps que l'exécution de 
 
 Pour plus d'informations et de conseils d'utilisation, consultez la documentation. \url{https://docs.bearer.com/reference/datatypes/}
 
-# Outil 2: Progpilot 
+# Outil 2: Progpilot #
+
     Progpilot (https://github.com/designsecurity/progpilot) est un outil d'analyse statique open-source pour détecter les vulnérabilités de sécurité dans le code PHP.\citeurl{progpilot}.Progpilot peut détecter un large éventail de vulnérabilités de sécurité. Il est conçu pour être facile à utiliser et s'intègre parfaitement avec des environnements de développement PHP populaires tels que Visual Studio Code et Atom. Il peut également être utilisé en tant qu'outil en ligne de commande autonome.\\
 
 # Installation de progpilot
@@ -62,18 +64,19 @@ Consulter la documentation:
 La commande progpilot prend en argument le chemin des fichiers et dossiers à analyser et éventuellement un fichier de configuration :
 \lstconsolestyle
 
-\begin{lstlisting}[language=bash]
 # Sans onfiguration du fichier file
+\begin{lstlisting}[language=bash]
+
 $ progpilot example1.php example2.php folder1/ folder2/
+\end{lstlisting}
 # Avec configuration du fichier file
-$ progpilot --configuration configuration.yml example1.php example2.php folder1/ folder2/
-Si vous l''avez installé avec composer, le programme sera situé dans vendor/bin/progpilot
+\begin{lstlisting}[language=bash]
+$ progpilot example1.php example2.php folder1/ folder2/
 \end{lstlisting}
 
-
-Pour plus d'informations, consulter le fichier readme via \url{https://github.com/designsecurity/progpilot#readme}.
+Pour plus d'informations, consulter le fichier readme via https://github.com/designsecurity/progpilot#readme.
     
-# Outil 3: Brakeman
+# Outil 3: Brakeman #
 
 Brakeman est un outil open source d'analyse de sécurité statique pour Ruby on Rails. Il est conçu pour détecter les vulnérabilités de sécurité dans les applications Ruby on Rails.
 
@@ -82,22 +85,23 @@ Brakeman analyse le code source de l'application Ruby on Rails et génère un ra
 Il est également capable de détecter les vulnérabilités de sécurité dans les bibliothèques tierces utilisées par l'application \citeurl{brakeman}.
 Pour réaliser l'analyse statique automatisée, il est nécessaire d'accéder au code source, nous l'appliquons aux applications opensource dont le code source est disponible sur github.Ce sont les plateformes que nous allons selectionner à travers les lignes ci-après.\\
 
-# Comment utiliser Brakeman?
+# Comment utiliser Brakeman? #
 
 \begin{lstlisting}
 $ brakeman /path/to/rails/application
-
-% /path/to/rails/application: chemin du dossier contenant 
-% le code source de l'application.
 \end{lstlisting}
-
-Ces outils n'ont pas été pris au hasard, nous évoquerons les différents critères qui ont conduit à ces choix.
 
 ## Choix des outils ###
 
 # Critères de choix # 
- Nous privilégions les outils opensource pour non seulement profiter de leur gratuité mais aussi de leur pleine puissance sans oublier les critères de choix de bon outil abordés par OWASP \citeurl{owaspsast} à savoir prend en charge votre langage de programmation, capacité à détecter les vulnérabilités, basée sur le Top 10 de l'OWASP, la précision (taux de faux positifs/faux négatifs), note de référence OWASP,capacité à comprendre les bibliothèques/frameworks dont vous avez besoin, disponibilité en tant que plug-in dans les IDE de développeur préférés,facilité d'installation/d'utilisation,capacité à inclure dans les outils d'intégration/déploiement continus, coût de la licence,interopérabilité de la sortie.
-Nous avons étudié plusieurs outils sur la base de plusieurs autres critères complémentaires à savoir: nombre de contributeurs, nombre de stars, nombre de vues, la date de dernière version, la date du dernier commit et le nombre de forks et le temps d'analyse. Les résultats de cette étude sont classés dans le tableau suivant:
+ Nous privilégions les outils opensource pour non seulement profiter de leur gratuité mais aussi de leur pleine puissance sans oublier les critères de choix de bon outil abordés par OWASP https://owasp.org/www-community/Source_Code_Analysis_Tools à savoir prend en charge votre langage de programmation, 
+ capacité à détecter les vulnérabilités, basée sur le Top 10 de l'OWASP, la précision (taux de faux positifs/faux négatifs), note de 
+ référence OWASP,capacité à comprendre les bibliothèques/frameworks dont vous avez besoin, disponibilité en tant que plug-in dans les 
+ IDE de développeur préférés,facilité d'installation/d'utilisation,capacité à inclure dans les outils d'intégration/déploiement continus, 
+ coût de la licence,interopérabilité de la sortie.
+Nous avons étudié plusieurs outils sur la base de plusieurs autres critères complémentaires à savoir: nombre de contributeurs, 
+nombre de stars, nombre de vues, la date de dernière version, la date du dernier commit et le nombre de forks et le temps d'analyse. 
+Les résultats de cette étude sont classés dans le tableau suivant:
 
 \begin{table}[H]
     \centering
@@ -138,37 +142,10 @@ Nous avons étudié plusieurs outils sur la base de plusieurs autres critères c
 
 ### Analyse comparatives des outils ### 
 
-\begin{table}[H]
-    \centering
-    \caption{Tableau comparatif des outils de la méthode 1 } 
-    \label{tab:service_level}
-    \begin{tabular}{|p{3cm}|p{4.1cm}|p{4.2cm}|p{4.2cm}|}
-        \hline
- \textbf{Outils méthode 1} & \textbf{Points forts} & \textbf{Points faibles} \\ [0.5ex] 
- \hline\hline
- Bearer & spécialisée pour les API,détection des anomalies avec l'apprentissage automatique.
- langages: c/c++, Ruby, TypeScript, javascript,HTML et Shell
-Intégrations prêtes à l'emploi avec des API populaires.
-Alertes et blocage automatique des requêtes malveillantes. & Limitation à la sécurité des API,
-dépendance aux intégrations prédéfinies et possibilité de limitations de couverture.\\ 
- \hline\hline
-  Brakeman & Ruby on rails, détection injections SQL et les attaques XSS.
-rapports détaillés,intégration CI/CD pour une vérification automatisée de la sécurité.
- & Limitation aux applications Ruby on Rails.
-temps d'analyse dépendant de la taille et de la complexité de l'application,nécessite des connaissances en Ruby on Rails pour interpréter les résultats.\\
-   \hline\hline
-  Progpilot & Langage PHP et ses frameworks et bibliothèques.
-Capacité à analyser le flux de contrôle et les traces du code.
-,détection injections de code et les attaques XSS,possibilité de personnalisation & Limitation à PHP.
-Le temps dépend de taille et de la complexité du code.
-Nécessite des connaissances spécifiques à PHP pour interpréter les résultats.\\
- %Total of Test & \multicolumn{6}{|c|}{13645} \\ [1ex] 
- \hline\hline
-    \end{tabular} 
-\end{table}
 En somme, Progpilot, Brakeman et Bearer offrent des fonctionnalités d'analyse de sécurité différentes, adaptées à des langages de programmation et à des cas d'utilisation spécifiques. Progpilot est spécialisé dans l'analyse des codes PHP et donc des frameworks et bibliothèques PHP, Brakeman se concentre sur les applications Ruby on Rails, tandis que Bearer est conçu pour la sécurité des API et dont  le rapport d'analyse est bien hiérarchisé.
 
-\section{Méthodes d'analyse 2: Analyse dynamique semi-automatisée}
+### 2-Méthodes d'analyse 2: Analyse dynamique semi-automatisée ###
+
 Les premières méthodes de test dynamique de sécurité ont été développées dans les années 1990. Au début, ces méthodes étaient très rudimentaires et peu fiables, mais elles ont évolué pour devenir des outils sophistiqués capables de détecter une large gamme de vulnérabilités de sécurité.
 L’analyse dynamique appelée test en boîte noire surveille le comportement d’un programme lorsqu’il est exécuté avec un ensemble spécifique d’entrées. Pour que l’analyse dynamique de programme soit efficace, le programme cible doit être exécuté avec suffisamment d’entrées de test pour couvrir presque toutes les sorties possibles. Néanmoins, comme le nombre d’entrées possibles est infini, des mesures de test du logiciel, telles que la couverture du code, sont utilisées pour s’assurer qu’une portion adéquate de l’ensemble des comportements possibles du programmes a été couverte. À l’inverse de l’analyse statique, les vulnérabilités  que produit l’analyse dynamique sont moins nombreuses mais plus réelles.\cite{theseRaounak}
 
@@ -187,38 +164,25 @@ Les outils d'analyse dynamique automatisés que nous utiliserons sont présenté
 
 # Présentation de OWASP ZAP ou Zaproxy # 
 
-Zed Attack Proxy (ZAP) est un outil open source gratuit pour tester les applications web. Il est maintenu par l'Open Web Application Security Project (OWASP) et fonctionne comme un proxy qui permet d'intercepter et d'inspecter les messages entre le navigateur et l'application Web.ZAP est flexible et extensible, avec des fonctionnalités pour différents niveaux de compétence en matière de tests de sécurité telles que l'analyse de sécurité automatisée et manuelle, l'interception de requêtes et de réponses, la modification de requêtes et de réponses, la recherche de vulnérabilités courantes, etc.\citeurl{zap}\\
+Zed Attack Proxy (ZAP) est un outil open source gratuit pour tester les applications web. Il est maintenu par l'Open Web Application Security Project (OWASP) et fonctionne comme un proxy qui permet d'intercepter et d'inspecter les messages entre le navigateur et l'application Web.ZAP est flexible et extensible, avec des fonctionnalités pour différents niveaux de compétence en matière de tests de sécurité telles que l'analyse de sécurité automatisée et manuelle, l'interception de requêtes et de réponses, la modification de requêtes et de réponses, la recherche de vulnérabilités courantes, etc https://owasp.org/www-project-zap/.
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{images/browser-no-proxy.png}
-    \caption{OWASP ZAP comme man-in-the-middle proxy"}
-    \label{fig:internetbj}
-\end{figure}
 
 ZAP offre des fonctionnalités supplémentaires gratuites grâce à une variété de modules complémentaires disponibles sur le marché ZAP. Ces modules sont accessibles depuis le client ZAP et permettent aux utilisateurs d'étendre les fonctionnalités de l'outil: dans ce travail nous utilisons en plus les modules "access control" et "pentesterpack". 
 
+Le processus de pentesting}, les étapes pentesting avec OWASP ZAP et la présentation complète est disponible via la documentation.
 
-\textbf{Le processus de pentesting}, les étapes pentesting avec OWASP ZAP et la présentation complète est disponible via la documentation.\citeurl{zap}.
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{images/demarragezap.png}
-    \caption{"Démarrage rapide de ZAP "}
-    \label{fig:internetbj}
-\end{figure}
-\citeurl{tutozap}.
-Les étapes de test y compris la configuration du proxy sur Firefox est disponible  via \url{https://fre.myservername.com/owasp-zap-tutorial-comprehensive-review-owasp-zap-tool} \citeurl{tutozap}.
+Les étapes de test y compris la configuration du proxy sur Firefox est disponible  via https://fre.myservername.com/owasp-zap-tutorial-comprehensive-review-owasp-zap-tool.
 %/////////////////////////////////
 %////////////////////////////////
 %\subsubsection{Dotdotpwn}
 %DotDotPwn est un outil de test de pénétration open-source qui vise à détecter les vulnérabilités d'inclusion de fichiers dans les applications web. Il permet d'automatiser les attaques en utilisant des séquences de caractères spécialement conçues pour exploiter ces vulnérabilités.
 %Compatible avec la plupart des systèmes d'exploitation, il prend en charge plusieurs protocoles tels que HTTP, FTP, SMB, SSH, Telnet, SMTP, POP3, etc. pour tester la sécurité des applications.
 %DotDotPwn peut être utilisé pour trouver des vulnérabilités d'inclusion de fichiers en testant les entrées utilisateur dans les paramètres de l'URL, les en-têtes HTTP et d'autres entrées utilisateur. Il est également capable de vérifier l'existence de fichiers sensibles sur le serveur, tels que les fichiers de configuration et les fichiers de journal.%
-
-\subsection{Choix des outils}
+### Choix des outils ###
 Nous avons porté notre choix sur OWASP ZAP ou Zaproxy pour l'analyse dynamique.
 Nous aborderons les critères qui justifient ce choix dans la sous-section suivante.
-\subsubsection{Critères de choix}
+
+# Critères de choix # 
 Nous avons privilégié également les solutions les plus à jours et ayant plus de stars.
 Tout comme dans le cas de l'analyse statique automatisée, nous privilégions les outils opensource en tenant aussi compte les critères recommandées par OWASP \citeurl{owaspdast}.
 Nous avons étudié plusieurs outils sur la base de plusieurs autres critères complémentaires à savoir: nombre de contributeurs, nombre de stars, nombre de vues, la date de dernière version, la date du dernier commit et le nombre de forks et le temps d'analyse. Les résultats de cette étude sont classés dans le tableau suivants:
