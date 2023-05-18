@@ -20,7 +20,7 @@ Pour atteindre ces objectifs,en particulier la méthodologie de recherche et de 
 
 ### Description de la démarche ###
 
-Cette démarche est basée sur l'identification et la détection des CWE  (https://owasp.org/Top10/A01_2021-Broken_Access_Control/)| https://cwe.mitre.org/data/definitions/23.html relatives aux vulnérabilités "Broken Access Control".
+Cette démarche est basée sur l'identification et la détection des faiblesses CWE  (https://owasp.org/Top10/A01_2021-Broken_Access_Control/)| https://cwe.mitre.org/data/definitions/23.html relatives aux vulnérabilités "Broken Access Control".
 
 Pour cela, nous utilisons deux méthodes: méthode d'analyse statique automatisée et méthode d'analyse dynamique semi-automatisée.
 
@@ -39,12 +39,15 @@ Cette méthode analyse directement le code source du programme sans l’exécute
 Consulter ici https://github.com/Bearer/bearer
 # Comment analyser du code avec Bearer
 Le moyen le plus simple d'essayer Bearer est d'utiliser notre dossier de projet. Il convient de cloner ou de télécharger le projet opensource (le code source de l'application à tester) à un emplacement courant pour commencer.
-# ******************************************Utilisation****************************************
+# Utilisation # 
 
 $ git clone https://github.com/Bearer/nom_projet.git
 
 Maintenant, exécutez la commande scan avec bearer scan sur le répertoire du projet :
-$ bearer scan nom_projet
+``` 
+$ bearer scan nom_projet      
+                                        
+```
 
 L'exécution de Bearer ne devrait pas prendre plus de temps que l'exécution de votre suite de tests}.
 
