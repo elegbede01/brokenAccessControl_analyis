@@ -229,6 +229,7 @@ Nous avons étudié plusieurs outils sur la base de plusieurs autres critères c
 
 
 Les tests doivent être effectués sur les applications  disponibles via hackerone https://hackerone.com.
+Hackerone /logo_hackerone.png
  
 
 ### Matériels ###
@@ -255,6 +256,20 @@ Pour les tests, nous utilisons une une machine virtuelle virtualbox:
 #/////////////////////////////////////////////////////////////////
 
 ### 4- Filtrer les faiblesses obtenus dans les rapports d'analyse: s'intéresser uniquement aux CWE relatifs à ceux cités en étape 1.
+
+
+### 5- Automatisation de la démarche.
+
+Pour automatiser notre démarche , nous avons écrire quelques scripts selon la méthode choisie statique ou dynamique et selon la technologie utilisée.
+
+     ### Analyse statique
+
+     ## Pour PHP
+
+     Ce script basé sur progpilot abordé précédemment, compare les CWE du rapport d'analyse effectuée par progpilot à l'ensemble des
+     CWE qui constitue les CWE des vulnérabilités broken Access Control et renvoie ces derniers avec les détails permettant de localiser la ou les faiblesse(s)
+
+      Analyse statique automatisée des applications à technologie PHP /sastphp.php
 
 ## CONTACT ##
 
