@@ -5,32 +5,106 @@
 
 # Objectifs
 # OBJECTIF GÉNÉRAL
-L’objectif principal de notre travail est de contribuer à la sécurité des applications web des entreprises, des institutions et particuliers en identifiant les faiblesses et vulnérabilités courantes  "Broken Access Control"  dans la sous-région et au Bénin et dans le monde.
+L’objectif principal de notre travail est détecter les faiblesses relatives au "Broken Access Control" sur les applications et plateformes web..
  
 # OBJECTIFS SPÉCIFIQUES
 
 De façon spécifique, les objectifs visés sont:
-1- Détecter les vulnérabiltés ou faiblesses du type "Broken Access Control" dans les plateformes ou applications web.  ;
-2-Mettre en place une méthodologie de recherche et de détection rapide de faiblesses ou de vulnérabilités "Broken Access Control".
+1- Mettre en place une méthodologie de recherche et de détection rapide de faiblesses "Broken Access Control.  ;
+2-Détecter les faiblesses relatives au "Broken Access Control" dans les plateformes ou applications web.
 3-Proposer des pistes d'amélioration pour renforcer la sécurité des applications web;
 4-Sensibiliser les développeurs et les équipes de sécurité à l'importance de la sécurité dès le début du processus de développement 
 
-Pour atteindre ces objectifs,en particulier la méthodologie de recherche et de détection des vulnérabilités "Broken Access Control"    
-
+Pour atteindre ces objectifs, voici notre démarche"    
 
 ### Description de la démarche ###
 
+### 1-S'approprier des vulnérabilités Broken Access Control
+
 Cette démarche est basée sur l'identification et la détection des faiblesses CWE  (https://owasp.org/Top10/A01_2021-Broken_Access_Control/)| https://cwe.mitre.org/data/definitions/23.html relatives aux vulnérabilités "Broken Access Control".
 
-Pour cela, nous utilisons deux méthodes: méthode d'analyse statique automatisée et méthode d'analyse dynamique semi-automatisée.
+Liste des CWEs associées soit des faiblesses liées au Broken Access COntrol
 
-### 1-Méthode d'analyse 1: Analyse statique automatisée ###
+CWE-22 Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')
+
+CWE-23 Relative Path Traversal
+
+CWE-35 Path Traversal: '.../...//'
+
+CWE-59 Improper Link Resolution Before File Access ('Link Following')
+
+CWE-200 Exposure of Sensitive Information to an Unauthorized Actor
+
+CWE-201 Exposure of Sensitive Information Through Sent Data
+
+CWE-219 Storage of File with Sensitive Data Under Web Root
+
+CWE-264 Permissions, Privileges, and Access Controls (should no longer be used)
+
+CWE-275 Permission Issues
+
+CWE-276 Incorrect Default Permissions
+
+CWE-284 Improper Access Control
+
+CWE-285 Improper Authorization
+
+CWE-352 Cross-Site Request Forgery (CSRF)
+
+CWE-359 Exposure of Private Personal Information to an Unauthorized Actor
+
+CWE-377 Insecure Temporary File
+
+CWE-402 Transmission of Private Resources into a New Sphere ('Resource Leak')
+
+CWE-425 Direct Request ('Forced Browsing')
+
+CWE-441 Unintended Proxy or Intermediary ('Confused Deputy')
+
+CWE-497 Exposure of Sensitive System Information to an Unauthorized Control Sphere
+
+CWE-538 Insertion of Sensitive Information into Externally-Accessible File or Directory
+
+CWE-540 Inclusion of Sensitive Information in Source Code
+
+CWE-548 Exposure of Information Through Directory Listing
+
+CWE-552 Files or Directories Accessible to External Parties
+
+CWE-566 Authorization Bypass Through User-Controlled SQL Primary Key
+
+CWE-601 URL Redirection to Untrusted Site ('Open Redirect')
+
+CWE-639 Authorization Bypass Through User-Controlled Key
+
+CWE-651 Exposure of WSDL File Containing Sensitive Information
+
+CWE-668 Exposure of Resource to Wrong Sphere
+
+CWE-706 Use of Incorrectly-Resolved Name or Reference
+
+CWE-862 Missing Authorization
+
+CWE-863 Incorrect Authorization
+
+CWE-913 Improper Control of Dynamically-Managed Code Resources
+
+CWE-922 Insecure Storage of Sensitive Information
+
+CWE-1275 Sensitive Cookie with Improper SameSite Attribute
+
+Consulter ce lien en cas de mise à jour : https://owasp.org/Top10/fr/A01_2021-Broken_Access_Control/
+
+
+Pour les détecter, nous utilisons deux méthodes: méthode d'analyse statique automatisée et méthode d'analyse dynamique semi-automatisée.
+
+### 2-Méthode d'analyse 1: Analyse statique automatisée ###
 
 Les tests de sécurité des applications statiques (SAST) sont utilisés pour sécuriser les logiciels en examinant le code source du logiciel pour identifier les sources de vulnérabilités. Le processus d'analyse statique du code source existe depuis que les ordinateurs existent, la technique s'est étendue à la sécurité à la fin des années 90 https://en.wikipedia.org/wiki/Static_application_security_testing.
 
 Cette méthode analyse directement le code source du programme sans l’exécuter afin de déterminer la qualité de l'application web. L’analyse peut être effectuée à plusieurs niveaux du programme qui comprennent, entre autre, le niveau "unité" qui se concentre sur une portion de code sans prendre en compte le contexte général du programme et le niveau "système" où la globalité de l'application est analysée avec les différentes relations existantes entre les unités. Ce type d’analyse est susceptible de trouver un grand nombre de vulnérabilités, mais a souvent pour défaut de retourner beaucoup de fausses alertes https://owasp.org/www-community/Source_Code_Analysis_Tools et de durer dans le temps. L’analyse statique de code peut être effectuée manuellement, communément appelée la revue de code ou inspection de code, ou bien en utilisant des outils automatisés (Static Application Security Testing (SAST), on parle d'analyse statique automatisée \cite{theseRaounak}. Les outils d’analyse statique automatisée utilisés dans le cadre de notre travail seront abordées à la suite.
 
-### Outil 1: Bearer ###
+### Outil 1: Bearer ###  
 
    Bearer (\url{https://github.com/Bearer/bearer}) est un outil opensource de test statique de sécurité des applications (SAST) qui scanne le code source et analyse les flux de données pour découvrir, filtrer et hiérarchiser les risques de sécurité et les vulnérabilités conduisant à des expositions de données sensibles (PII, PHI).
    earer est entièrement personnalisable, de la création de vos propres règles à la détection des composants (base de données, API) et à la classification des données.
@@ -48,7 +122,7 @@ Maintenant, exécutez la commande scan avec bearer scan sur le répertoire du pr
 $ bearer scan nom_projet      
                                         
 ```
-
+Nous obtenons  à la fin de l'opération un rapport complet.
 L'exécution de Bearer ne devrait pas prendre plus de temps que l'exécution de votre suite de tests}.
 
 Pour plus d'informations et de conseils d'utilisation, consultez la documentation. \url{https://docs.bearer.com/reference/datatypes/}
@@ -110,7 +184,7 @@ Les résultats de cette étude sont classés dans le tableau suivant:
 
 En somme, Progpilot, Brakeman et Bearer offrent des fonctionnalités d'analyse de sécurité différentes, adaptées à des langages de programmation et à des cas d'utilisation spécifiques. Progpilot est spécialisé dans l'analyse des codes PHP et donc des frameworks et bibliothèques PHP, Brakeman se concentre sur les applications Ruby on Rails, tandis que Bearer est conçu pour la sécurité des API et dont  le rapport d'analyse est bien hiérarchisé.
 
-### 2-Méthodes d'analyse 2: Analyse dynamique semi-automatisée ###
+### 3-Méthodes d'analyse 2: Analyse dynamique semi-automatisée ###
 
 Les premières méthodes de test dynamique de sécurité ont été développées dans les années 1990. Au début, ces méthodes étaient très rudimentaires et peu fiables, mais elles ont évolué pour devenir des outils sophistiqués capables de détecter une large gamme de vulnérabilités de sécurité.
 L’analyse dynamique appelée test en boîte noire surveille le comportement d’un programme lorsqu’il est exécuté avec un ensemble spécifique d’entrées. Pour que l’analyse dynamique de programme soit efficace, le programme cible doit être exécuté avec suffisamment d’entrées de test pour couvrir presque toutes les sorties possibles. Néanmoins, comme le nombre d’entrées possibles est infini, des mesures de test du logiciel, telles que la couverture du code, sont utilisées pour s’assurer qu’une portion adéquate de l’ensemble des comportements possibles du programmes a été couverte. À l’inverse de l’analyse statique, les vulnérabilités  que produit l’analyse dynamique sont moins nombreuses mais plus réelles.\cite{theseRaounak}
