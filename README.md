@@ -9,11 +9,15 @@ L’objectif principal de notre travail est détecter les faiblesses relatives a
  
 # OBJECTIFS SPÉCIFIQUES
 
-De façon spécifique, les objectifs visés sont:
-1- Mettre en place une méthodologie de recherche et de détection rapide de faiblesses "Broken Access Control.  ;
-2-Détecter les faiblesses relatives au "Broken Access Control" dans les plateformes ou applications web.
-3-Proposer des pistes d'amélioration pour renforcer la sécurité des applications web;
-4-Sensibiliser les développeurs et les équipes de sécurité à l'importance de la sécurité dès le début du processus de développement 
+De façon spécifique, les objectifs visés sont:  
+
+1- Mettre en place une méthodologie de recherche et de détection rapide de faiblesses "Broken Access Control.  
+
+2- Détecter les faiblesses relatives au "Broken Access Control" dans les plateformes ou applications web.
+
+3- Proposer des pistes d'amélioration pour renforcer la sécurité des applications web;
+
+4- Sensibiliser les développeurs et les équipes de sécurité à l'importance de la sécurité dès le début du processus de développement 
 
 Pour atteindre ces objectifs, voici notre démarche"    
 
@@ -184,7 +188,7 @@ Les résultats de cette étude sont classés dans le tableau suivant:
 
 En somme, Progpilot, Brakeman et Bearer offrent des fonctionnalités d'analyse de sécurité différentes, adaptées à des langages de programmation et à des cas d'utilisation spécifiques. Progpilot est spécialisé dans l'analyse des codes PHP et donc des frameworks et bibliothèques PHP, Brakeman se concentre sur les applications Ruby on Rails, tandis que Bearer est conçu pour la sécurité des API et dont  le rapport d'analyse est bien hiérarchisé.
 
-### 3-Méthodes d'analyse 2: Analyse dynamique semi-automatisée ###
+### 3- Méthodes d'analyse 2: Analyse dynamique semi-automatisée ###
 
 Les premières méthodes de test dynamique de sécurité ont été développées dans les années 1990. Au début, ces méthodes étaient très rudimentaires et peu fiables, mais elles ont évolué pour devenir des outils sophistiqués capables de détecter une large gamme de vulnérabilités de sécurité.
 L’analyse dynamique appelée test en boîte noire surveille le comportement d’un programme lorsqu’il est exécuté avec un ensemble spécifique d’entrées. Pour que l’analyse dynamique de programme soit efficace, le programme cible doit être exécuté avec suffisamment d’entrées de test pour couvrir presque toutes les sorties possibles. Néanmoins, comme le nombre d’entrées possibles est infini, des mesures de test du logiciel, telles que la couverture du code, sont utilisées pour s’assurer qu’une portion adéquate de l’ensemble des comportements possibles du programmes a été couverte. À l’inverse de l’analyse statique, les vulnérabilités  que produit l’analyse dynamique sont moins nombreuses mais plus réelles.\cite{theseRaounak}
@@ -223,9 +227,8 @@ Nous avons privilégié également les solutions les plus à jours et ayant plus
 Tout comme dans le cas de l'analyse statique automatisée, nous privilégions les outils opensource en tenant aussi compte les critères recommandées par OWASP https://owasp.org/www-project-devsecops-guideline/latest/02b-Dynamic-Application-Security-Testing.
 Nous avons étudié plusieurs outils sur la base de plusieurs autres critères complémentaires à savoir: nombre de contributeurs, nombre de stars, nombre de vues, la date de dernière version, la date du dernier commit et le nombre de forks et le temps d'analyse. Les résultats de cette étude sont classés dans le tableau suivants:
 
-%\subsubsection{Analyse comparatives des outils}
 
-Les tests doivent être effectués sur les applications  disponible via hackerone https://hackerone.com.
+Les tests doivent être effectués sur les applications  disponibles via hackerone https://hackerone.com.
  
 
 ### Matériels ###
@@ -250,6 +253,8 @@ Pour les tests, nous utilisons une une machine virtuelle virtualbox:
 
 
 #/////////////////////////////////////////////////////////////////
+
+### 4- Filtrer les faiblesses obtenus dans les rapports d'analyse: s'intéresser uniquement aux CWE relatifs à ceux cités en étape 1.
 
 ## CONTACT ##
 
