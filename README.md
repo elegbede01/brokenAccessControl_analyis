@@ -269,7 +269,7 @@ Pour automatiser notre démarche , nous avons écrire quelques scripts selon la 
      Ce script basé sur progpilot abordé précédemment, compare les CWE du rapport d'analyse effectuée par progpilot à l'ensemble des
      CWE qui constitue les CWE des vulnérabilités broken Access Control et renvoie ces derniers avec les détails permettant de localiser la ou les faiblesse(s)
 
-      Analyse statique automatisée des applications à technologie PHP /sastphp.php
+      Analyse statique automatisée des applications à technologie PHP https://github.com/elegbede01/brokenAccessControl_analyis/blob/main/sast/sastphp.php
 
        <?php
        
