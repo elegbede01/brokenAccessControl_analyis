@@ -274,7 +274,6 @@ Pour automatiser notre démarche , nous avons écrire quelques scripts selon la 
 '''
 <?php
       <!-- Auteur: Joseph ELEGBEDE -->
-<?php
 // Inclusion des dépendances de progpilot
 require_once './vendor/autoload.php';
 
@@ -460,7 +459,6 @@ function printResults($results)
 ?>
 
       ?>
-      '''
 
 
 ## CONTACT ##
