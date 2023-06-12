@@ -1,0 +1,63 @@
+PS C:\Users\elegbede\Desktop\Memore> php testsastphp09.php dossier
+Analyzing folder: dossier
+Analyzing folder: dossier/site1
+Analyzing folder: dossier/site1/simple-php-website-master
+Analyzing folder: dossier/site1/simple-php-website-master/content
+Analyzing folder: dossier/site1/simple-php-website-master/includes
+Analyzing file: dossier/site1/simple-php-website-master/includes/config.php
+PHP Fatal error:  Uncaught Error: Call to undefined function formatResults() in C:\Users\elegbede\Desktop\Memore\testsastphp09.php:157
+Stack trace:
+#0 C:\Users\elegbede\Desktop\Memore\testsastphp09.php(90): saveFilteredResultsToHTML('output/config', Array)
+#1 C:\Users\elegbede\Desktop\Memore\testsastphp09.php(55): analyzeFile('dossier/site1/s...')
+#2 C:\Users\elegbede\Desktop\Memore\testsastphp09.php(52): analyzeFolder('dossier/site1/s...')
+#3 C:\Users\elegbede\Desktop\Memore\testsastphp09.php(52): analyzeFolder('dossier/site1/s...')
+#4 C:\Users\elegbede\Desktop\Memore\testsastphp09.php(52): analyzeFolder('dossier/site1')
+#5 C:\Users\elegbede\Desktop\Memore\testsastphp09.php(20): analyzeFolder('dossier')
+#6 {main}
+  thrown in C:\Users\elegbede\Desktop\Memore\testsastphp09.php on line 157
+PS C:\Users\elegbede\Desktop\Memore> php testsastphp08.php dossier
+Analyzing folder: dossier
+Analyzing folder: dossier/site1
+Analyzing folder: dossier/site1/simple-php-website-master
+Analyzing folder: dossier/site1/simple-php-website-master/content
+Analyzing folder: dossier/site1/simple-php-website-master/includes
+Analyzing file: dossier/site1/simple-php-website-master/includes/config.php
+Filtered HTML Results saved to: output/config/results.html
+Filtered Results:
+Analyzing file: dossier/site1/simple-php-website-master/includes/functions.php
+Filtered HTML Results saved to: output/functions/results.html
+Filtered Results:
+Vulnerability Name: xss
+Vulnerability CWE: CWE_79
+Vulnerability ID: e2a3a548af494feb6efa4e42c56161637cf78a4bed4b2f943a19f86622fd9e59
+Vulnerability Type: taint-style
+
+Analyzing file: dossier/site1/simple-php-website-master/index.php
+Filtered HTML Results saved to: output/index/results.html
+Filtered Results:
+Vulnerability Name: xss
+Vulnerability CWE: CWE_79
+Vulnerability ID: e2a3a548af494feb6efa4e42c56161637cf78a4bed4b2f943a19f86622fd9e59
+Vulnerability Type: taint-style
+
+Analyzing folder: dossier/site1/simple-php-website-master/template
+Analyzing file: dossier/site1/simple-php-website-master/template/template.php
+Filtered HTML Results saved to: output/template/results.html
+Filtered Results:
+Vulnerability Name: xss
+Vulnerability CWE: CWE_79
+Vulnerability ID: e2a3a548af494feb6efa4e42c56161637cf78a4bed4b2f943a19f86622fd9e59
+Vulnerability Type: taint-style
+
+Analyzing file: dossier/source_code1.php
+Filtered HTML Results saved to: output/source_code1/results.html
+Filtered Results:
+Vulnerability Name: xss
+Vulnerability CWE: CWE_79
+Vulnerability ID: e2a3a548af494feb6efa4e42c56161637cf78a4bed4b2f943a19f86622fd9e59
+Vulnerability Type: taint-style
+
+Vulnerability Name: xss
+Vulnerability CWE: CWE_79
+Vulnerability ID: 32b60e5e1f0ff17b14d2bf7a77b1e471360b07751367066dfd1c8850cd14ceb3
+Vulnerability Type: taint-style

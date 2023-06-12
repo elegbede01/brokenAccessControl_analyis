@@ -1,4 +1,12 @@
 <!-- Auteur: Joseph ELEGBEDE -->
+<!-- Important:
+Installer d'abord les dépendances à savoir progpilot, et les modules python nécessaires.
+
+Pour exécuter le code: metttre tous les fichiers, dossier et sous-dossier dans un dossier.
+
+php sastphp.php nom_dossier 
+S'assurer d'être dans le dossier contenant le dossier de nom nom_dossier. -->
+
 <?php
 // Inclusion des dépendances de progpilot
 require_once './vendor/autoload.php';
