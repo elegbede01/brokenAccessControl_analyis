@@ -271,7 +271,6 @@ Pour automatiser notre démarche , nous avons écrire quelques scripts selon la 
 
       Analyse statique automatisée des applications à technologie PHP /sastphp.php
 
-      '''
       <?php
       <!-- Auteur: Joseph ELEGBEDE -->
 <?php
@@ -460,8 +459,6 @@ function printResults($results)
 ?>
 
       ?>
-      '''
-
 
 ## CONTACT ##
 
